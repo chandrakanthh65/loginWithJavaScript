@@ -50,7 +50,7 @@ form.onsubmit = (e)=>{
 }
 
 function onSignIn(googleUser) {
-  wrapper.style.display = "none";
+  form.style.display = "none";
   var profile = googleUser.getBasicProfile();
   $("#name").text(profile.getName());
   $("#email").text(profile.getEmail());
@@ -61,7 +61,7 @@ function onSignIn(googleUser) {
 
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
-  wrapper.style.display = "block";
+  form.style.display = "block";
    $(".data").css("display", "none");
   auth2.signOut().then(function () {
       alert("You have been signed out successfully");
