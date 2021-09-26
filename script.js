@@ -1,4 +1,5 @@
 const form = document.querySelector("form");
+const wrapper = document.querySelector("wrapper");
 eField = form.querySelector(".email"),
 eInput = eField.querySelector("input"),
 pField = form.querySelector(".password"),
@@ -49,7 +50,7 @@ form.onsubmit = (e)=>{
 }
 
 function onSignIn(googleUser) {
-  form.style.display = "none";
+  wrapper.style.display = "none";
   var profile = googleUser.getBasicProfile();
   $("#name").text(profile.getName());
   $("#email").text(profile.getEmail());
@@ -60,7 +61,7 @@ function onSignIn(googleUser) {
 
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
-  form.style.display = "block";
+  wrapper.style.display = "block";
   auth2.signOut().then(function () {
       alert("You have been signed out successfully");
       $(".data").css("display", "none");
