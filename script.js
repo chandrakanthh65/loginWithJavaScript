@@ -50,21 +50,23 @@ form.onsubmit = (e)=>{
 }
 
 function onSignIn(googleUser) {
-  form.style.display = "none";
+  //form.style.display = "none";
   var profile = googleUser.getBasicProfile();
   $("#name").text(profile.getName());
   $("#email").text(profile.getEmail());
   $("#image").attr('src', profile.getImageUrl());
   $(".data").css("display", "block");
   $(".g-signin2").css("display", "none");
+  $(".wrapper").css("display","none");
 }
 
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
-  form.style.display = "block";
+  //form.style.display = "block";
   auth2.signOut().then(function () {
       alert("You have been signed out successfully");
       $(".data").css("display", "none");
       $(".g-signin2").css("display", "block");
+    $(".wrapper").css("display","block");
   });
 }
