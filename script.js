@@ -62,7 +62,6 @@ function onSignIn(googleUser) {
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
   form.style.display = "block";
-   $(".data").css("display", "none");
   auth2.signOut().then(function () {
       alert("You have been signed out successfully");
       $(".data").css("display", "none");
